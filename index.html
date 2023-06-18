@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doraemon</title>
+</head>
+
+<style>
+    /* css phần khung nền */
+    .doraemon{
+        background-color: #e6e6e6;
+        width:100%;
+        height: 50em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* tạo đầu */
+    .dau{
+        width: 260px;
+        height: 220px;
+        background-color: #0090d5;
+        border-top-right-radius: 55%;
+        border-top-left-radius: 55%;
+        border-bottom-right-radius: 55%;
+        border-bottom-left-radius: 55%;
+        border: 3px solid #39302d;
+        border-bottom: 2px solid #39302d;
+        position: relative;
+    }
+
+    /* tạo mắt */
+    .mat{
+        background-color: #ffffff;
+        width: 44px;
+        height: 64px;
+        border: 2.5px solid #39302d;
+        border-top-right-radius: 65%;
+        border-top-left-radius: 65%;
+        border-bottom-right-radius: 55%;
+        border-bottom-left-radius: 55%;
+        z-index: 1;
+    }
+    .con_nguoi{
+        background-color: #231815;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    
+    .mat_trai{
+        position: absolute;
+        top: 22px;
+        left: 82px;
+    }
+    .mat_trai .con_nguoi{
+        position: absolute;
+        top: 40px;
+        left: 20px;
+    }
+
+    .mat_phai{
+        position: absolute;
+        top: 23px;
+        left: 130px;
+    }
+    .mat_phai .con_nguoi{
+        position: absolute;
+        top: 38px;
+        left: 9px;
+    }
+
+
+    /* tạo form miệng */
+    .Khuon_mom{
+        background-color: #ffffff;
+        width: 200px;
+        height: 160px;
+        position: absolute;
+        top: 65px;
+        left: 28px;
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 65%;
+        border-bottom-left-radius: 65%;
+        border: 2.5px solid #39302d;
+    }
+
+    /* tạo miệng */
+    .mieng{
+        position: absolute;
+        width: 140px;
+        height: 40px;
+        top: 78px;
+        left: 24px;
+        border-radius: 0 0 120px 120px;
+        border-bottom: 2.5px solid #39302d;
+        border-right: 2.5px solid #39302d;
+        border-left: 2.5px solid #39302d;
+    }
+
+    /* tạo mũi */
+    .mui{
+        position: relative;
+        background-color: #e72e25;
+        width: 24px;
+        height: 23px;
+        border-radius: 50%;
+        top: 24px;
+        left: 86px;
+    }
+    .dom_trang{
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        top: 2px;
+        left: 4px;
+    }
+    
+    /* tạo dọc mũi */
+    .doc_mui{
+        position: absolute;
+        width: 2.5px;
+        height: 70px;
+        background-color: #39302d;
+        top: 47px;
+        left: 97px;
+    }
+
+    /* tạo ria mép */
+    .ria{
+        position: absolute;
+        background-color: #39302d;
+        width: 60px;
+        height: 1.5px;
+    }
+    .ria_1{
+        top: 48px;
+        left: 20px;
+        transform: rotate(12deg);
+    }
+    .ria_2{
+        top: 56px ;
+        left: 19px;
+    }
+    .ria_3{
+        top: 64px;
+        left: 19px;
+        transform: rotate(-12deg);
+    }
+    .ria_4{
+        top: 48px ;
+        left: 123px;
+        transform: rotate(calc(360deg - 12deg));
+    }
+    .ria_5{
+        top: 56px;
+        left: 123px;
+    }
+    .ria_6{
+        top: 64px ;
+        left: 123px;
+        transform: rotate(calc(-360deg + 12deg));
+    }
+
+    /* css vòng đeo cổ */
+    .vong{
+        position: relative;
+        width: 180px;
+        height: 12px;
+        background-color: #e72e25;
+        transform: translateY(-25px);
+        border-radius: 1rem;
+        z-index: 7;
+        top:12px;
+        left:5px;
+        border: 3px solid #39302d;
+    }
+    
+
+    /* tạo chuông */
+    .chuong{
+        position: absolute;
+        background-color: hsl(56.94deg 100% 50%);
+        width: 50px;
+        height: 40px;
+        border-radius: 50%;
+        z-index: 8;
+        top: -7px;
+        left: 70px;
+        border: 3px solid #39302d;
+    }
+
+    .duong_ke_ngang{
+        position: absolute;
+        z-index: 5;
+        width: 50px;
+        height: 3px;
+        background-color: #39302d;
+        top: 17px;
+    }
+    .hat_chuong{
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #39302d;
+        border-radius: 50%;
+        top: 19px;
+        left: 19.5px;
+    }
+    .doc_chuong{
+        position: absolute;
+        width: 3px;
+        height: 15px;
+        background-color: #39302d;
+        top: 28px;
+        left: 23px;
+    }
+
+    /* Tạo bụng */
+    .bung{
+        position: absolute;
+        z-index: 5;
+        width: 150px;
+        height: 150px ;
+        background-color: #ffffff;
+        border-radius: 45%;
+        bottom: 15px;
+        left: 25px;
+    }
+    /* Túi thần kỳ */
+    .tui_than_ky{
+        position: absolute;
+        z-index: 7;
+        background-color: #fff;
+        width: 120px;
+        height: 120px;
+        top: 10px;
+        left: 14px;
+        border-radius: 100%;
+        border: 3px solid #39302d;
+    }
+    .nua_tui{
+        position: absolute;
+        z-index: 8;
+        background-color: #ffffff;
+        width: 125px;
+        height: 65px;
+        top: 5px;
+        left: -2.5px;
+        border-bottom: 3px solid #39302d;
+        border-top-right-radius: 2rem;
+        border-top-left-radius: 2rem;
+    }
+
+
+
+    /* tạo thân */
+    .than{
+        position: relative;
+        width: 196px;
+        height: 150px;
+        top: 13px;
+        background-color: #0090d5;
+        transform: translateY(-26px);
+        z-index: 2;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border: 3px solid #39302d;
+    }
+
+
+    /* tạo tay */
+    .tay{
+        position: relative;
+        background-color: #0090d5;
+        width: 50px;
+        height: 150px;
+        transform: translateZ(-3);
+        bottom: 18px;
+    }
+
+
+    /* tạo bàn tay */
+    .ban_tay{
+        position: absolute;
+        background-color: #ffffff;
+        width: 50px;
+        height: 35px;
+        border-radius: 50%;
+        bottom:0;
+        border: 3px solid #39302d;
+        transform: translateY(3px);
+    }
+
+
+    /* tạo tay trái */
+    .tay_trai{
+        transform: rotate(50deg) translateX(-46px) translateY(31px);
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 29%;
+        border-top-left-radius: 20%;
+        border-left: 3px solid #39302d;
+        position: relative;
+    }
+    .tay_trai::after{
+        content: "";
+        position: absolute;
+        width: 3px;
+        right: -3px;
+        height: 50%;
+        background-color: #39302d;
+        bottom: 28px;
+        border-bottom-right-radius: 70%;
+        border-top-right-radius: 70%;
+    }
+
+    /* tạo tay phai */
+    .tay_phai{
+        transform: rotate(calc(360deg - 50deg)) translateX(255px) translateY(51px);
+        border-bottom-left-radius: 48%;
+        border-bottom-right-radius: 50%;
+        border-top-right-radius: 20%;
+        border-right: 3px solid #39302d;
+    }
+    .tay_phai::after{
+        content: "";
+        position: absolute;
+        width: 2.5px;
+        left: -1px;
+        height: 52%;
+        background-color: #39302d;
+        transform: rotate(-3deg);
+        bottom: 28px;
+        border-bottom-left-radius: 101%;
+        border-top-left-radius: 160%;
+    }
+
+    
+    /* tạo chân */
+    .chan{
+        position: relative;
+        z-index: 1;
+        width: 205px;
+        height: 35px;
+        transform: translateY(-25px);
+    } 
+    .chan_trai{
+        position: absolute;
+        z-index: 2;
+        width: 50%;
+        height: 100%;
+        left: -10px;
+        background-color: #ffffff;
+        border:2.5px solid #39302d;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+
+    }
+    .chan_phai{
+        position: absolute;
+        z-index: 2;
+        width: 50%;
+        height: 100%;
+        left: 110px;
+        transform: scaleX(-1);
+        background-color: #ffffff;
+        border:2.5px solid #39302d;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+</style>
+<body>
+
+    <div class="doraemon">
+        <div class="dau">
+            
+            <div class="mat mat_phai">
+                <div class="con_nguoi"></div>
+            </div>
+
+            <div class="mat mat_trai">
+                <div class="con_nguoi"></div>
+            </div>
+           
+            <div class="Khuon_mom">
+                <div class="mui">
+                    <div class="dom_trang"></div>
+                </div>
+
+                <div class="doc_mui"></div>
+
+                <div class="mieng"></div>
+
+                <div class="ria ria_1"></div>
+                <div class="ria ria_2"></div>
+                <div class="ria ria_3"></div>
+                <div class="ria ria_4"></div>
+                <div class="ria ria_5"></div>
+                <div class="ria ria_6"></div>
+            </div>
+        </div>
+
+        
+
+        <div class="than">
+            <div class="vong"></div>
+
+            <div class="chuong">
+                <div class="duong_ke_ngang"></div>
+                <div class="hat_chuong"></div>
+                <div class="doc_chuong"></div>
+            </div>
+
+            <div class="bung">
+                <div class="tui_than_ky">
+                    <div class="nua_tui"></div>
+                </div>
+            </div>
+
+            <div class="tay tay_trai">
+                <div class="ban_tay"></div>
+            </div>
+
+            <div class="tay tay_phai">
+                <div class="ban_tay"></div>
+            </div>
+        </div>
+
+        <div class="chan">
+            <div class="chan_trai"></div>
+            <div class="chan_phai"></div>
+        </div>
+    </div>
+
+</body>
+</html>
